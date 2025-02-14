@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GrowSafe</title>
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins&display=swap'>
+  <link rel="stylesheet" href="../static/login.css">
+</head>
+<body>
+<div class="wrapper">
+  <div class="login_box">
+    <div class="login-header">
+      <span>Iniciar Sesión</span>
+    </div>
+
+    <form action="/iniciar_sesion" method="post" autocomplete="off">
+      <div class="input_box">
+        <input type="text" id="user" class="input-field" required>
+        <label for="user" class="label">Usuario</label>
+        <i class="bx bx-user icon"></i>
+      </div>
+
+      <div class="input_box">
+        <input type="password" id="pass" class="input-field" required>
+        <label for="pass" class="label">Contraseña</label>
+        <i class="bx bx-lock-alt icon"></i>
+      </div>
+
+      <div class="remember-forgot">
+        <div class="remember-me">
+          <input type="checkbox" id="recordar">
+          <label for="recordar">Recuérdame</label>
+        </div>
+
+        <div class="forgot">
+          <a href="/olvidaste_contrasena">¿Olvidaste tu contraseña?</a>
+        </div>
+      </div>
+
+      <div class="input_box">
+        <input type="submit" class="input-submit" value="Iniciar Sesión">
+      </div>
+    </form>
+
+    <div class="register">
+      <span>¿No tienes una cuenta? <a href="registro">Regístrate</a></span>
+    </div>
+  </div>
+</div>
+  
+</body>
+</html>

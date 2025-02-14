@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@100;200;300;400;500;&display=swap');
+
+:root {
+    --verde: #203500;
+    --verde2: #008000;
+    --blanco: white;
+    --degradado: linear-gradient(90deg, var(--verde2), var(--verde));
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+}
+
+*::selection {
+    background: var(--verde2);
+    color: white;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    overflow: hidden;
+}
+
+body {
+    background: whitesmoke;
+}
+
+section {
+    min-height: 100vh;
+    padding: 0 9%;
+    padding-top: 7.5rem;
+    padding-bottom: 2rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 3rem;
+    border-radius: 5rem;
+    background: var(--degradado);
+    font-size: 1.8rem;
+    color: var(--blanco);
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    transition: all .3s linear;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 2rem;
+    color: var(--verde);
+}
+
+header .logo span {
+    color: var(--verde2);
+}
+
+header .navbar a {
+    font-size: 1.8rem;
+    margin-left: 2rem;
+    color: var(--verde);
+}
+
+header .navbar a:hover {
+    color: var(--verde2);
+}
+
+header input {
+    display: none;
+}
+
+header label {
+    font-size: 3rem;
+    color: var(--verde);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.inicio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../static/image/Fondo.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.inicio .image img {
+    width: 40vw;
+    animation: float 3s linear infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0rem);
+    }
+    50% {
+        transform: translateY(-1rem);
+    }
+}
+
+.inicio .content h3 {
+    font-size: 4.5rem;
+    color: #333;
+    text-transform: uppercase;
+}
+
+.inicio .content h3 span {
+    color: var(--verde2);
+}
+
+.inicio .content p {
+    font-size: 1.7rem;
+    color: #333;
+    padding: 1rem 0;
+    text-align: justify;
+}
+
+.flash-messages {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.flash-message {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.flash-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.analizar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../static/image/Fondo.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.analizar .content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    max-width: 600px;
+    width: 100%;
+}
+
+.analizar .content h3 {
+    font-size: 3rem;
+    color: var(--verde);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.analizar .content p {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.input_box {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input_box .input-field {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--verde);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    color: var(--black-color);
+    background: transparent;
+}
+
+.input_box .label {
+    position: absolute;
+    top: -1.2rem;
+    left: 1rem;
+    background: var(--blanco);
+    padding: 0 .5rem;
+    font-size: 1.4rem;
+    color: var(--verde);
+}
+
+.input_box .input-field[type="file"] {
+    padding: 0.5rem;
+    border: none;
+    background: var(--blanco);
+    color: var(--verde);
+}
+
+.input_box .input-field[type="file"]::file-selector-button {
+    background: var(--degradado);
+    color: var(--blanco);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .3s linear;
+}
+
+.input_box .input-field[type="file"]::file-selector-button:hover {
+    transform: scale(1.1);
+}
+
+.resultado {
+    margin-top: 2rem;
+}
+
+.resultado .content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    max-width: 600px;
+    width: 100%;
+}
+
+.resultado .content h3 {
+    font-size: 3rem;
+    color: var(--verde);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.resultado .content p {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    header label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    header .navbar a {
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
+
+    header input:checked ~ .navbar {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    header input:checked ~ label::before {
+        content: '\f00d';
+    }
+
+    .inicio {
+        flex-flow: column-reverse;
+    }
+    .inicio .image img {
+        width: 100%;
+    }
+
+    .inicio .content h3 {
+        font-size: 3.6rem;
+    }
+
+    .inicio .content p {
+        font-size: 1.5rem;
+    }
+
+    .analizar {
+        flex-flow: column-reverse;
+    }
+
+    .analizar .content {
+        width: 100%;
+    }
+
+    .analizar .content h3 {
+        font-size: 2.4rem;
+    }
+
+    .analizar .content p {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 49%;
+    }
+}
+

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowSafe - Registro</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <link rel="stylesheet" href="../static/register.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="login_box">
+            <div class="login-header">
+                <span>Registro</span>
+            </div>
+
+            <form action="/registro" method="post" autocomplete="off">
+                <div class="input_box">
+                    <input type="text" id="user" class="input-field" required>
+                    <label for="user" class="label">Usuario</label>
+                    <i class="bx bx-user icon"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="email" id="email" class="input-field" required>
+                    <label for="email" class="label">Correo Electrónico</label>
+                    <i class="bx bx-envelope icon"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="password" id="pass" class="input-field" required>
+                    <label for="pass" class="label">Contraseña</label>
+                    <i class="bx bx-lock-alt icon"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="password" id="confirm-pass" class="input-field" required>
+                    <label for="confirm-pass" class="label">Confirmar Contraseña</label>
+                    <i class="bx bx-lock-alt icon"></i>
+                </div>
+
+                <div class="input_box">
+                    <input type="submit" class="input-submit" value="Registrarse">
+                </div>
+            </form>
+
+            <div class="register">
+                <span>¿Ya tienes una cuenta? <a href="iniciar_sesion">Inicia Sesión</a></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

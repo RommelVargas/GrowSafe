@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowSafe - Analizar</title>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+    <link rel="stylesheet" href="../static/analizar.css">
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">
+            <span>GROW</span>safe
+        </a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="fa fa-bars"></label>
+        <nav class="navbar">
+            <a href="/index">Inicio</a>
+            <a href="/analizar">Analizar</a>
+            <a href="/resultados">Resultados</a>
+            <a href="/guia">Guía</a>
+            <a href="/contacto">Contacto</a>
+            <a href="/mi_cuenta">Mi Cuenta</a>
+        </nav>
+    </header>
+
+    <section class="analizar" id="analizar">
+        <div class="content">
+            <h3>Analizar Cultivos</h3>
+            <p>Sube una foto de tus cultivos, ingresa el nombre del cultivo y una descripción del problema para recibir un diagnóstico preciso.</p>
+            <form action="/analizar" method="post" enctype="multipart/form-data">
+                <div class="input_box">
+                    <input type="text" name="nombre_planta" class="input-field" required>
+                    <label for="nombre_planta" class="label">Nombre de la Planta</label>
+                </div>
+                <div class="input_box">
+                    <textarea name="descripcion" class="input-field" required></textarea>
+                    <label for="descripcion" class="label">Descripción del Problema</label>
+                </div>
+                <div class="input_box">
+                    <input type="file" name="imagen" accept="image/*" required>
+                </div>
+                <div class="input_box">
+                    <input type="submit" class="btn" value="Analizar">
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Mostrar resultado del análisis -->
+    {% if resultado %}
+    <section class="resultado" id="resultado">
+        <div class="content">
+            <h3>Resultado del Análisis</h3>
+            <p>{{ resultado }}</p>
+            <a href="/contacto" class="btn">Contactar Soporte</a>
+        </div>
+    </section>
+    {% endif %}
+</body>
+</html>
