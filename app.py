@@ -168,3 +168,9 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+
+
+@app.route('/analizar_suelo', methods=['POST'])
+def analizar_suelo():
+    # Procesar imagen y datos de suelo (IA)
+    pass

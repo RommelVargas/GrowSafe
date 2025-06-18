@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowSafe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e9ecef;
+        margin: 0;
+        padding: 0;
+    }
+
+    .grafico-container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .grafico-panel {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px 15px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    .grafico-panel h4 {
+        text-align: center;
+        margin: 10px 0;
+        font-size: 15px;
+        color: #333;
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 180px !important; /* Más pequeño para que todos quepan */
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    .analisis-suelo {
+        padding-bottom: 60px; /* Espacio extra por si se bloquea el scroll */
+    }
+</style>
+
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">
+            <span>GROW</span>safe
+        </a>
+        <input type="checkbox" id="menu-bar">
+        <label for="menu-bar" class="fa fa-bars"></label>
+        <nav class="navbar">
+            <a href="index.html">Inicio</a>
+            <a href="analizar.html">Analizar</a>
+            <a href="resultados.html">Resultados</a>
+            <a href="guia.html">Guía</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="mi_cuenta.html">Mi Cuenta</a>
+            <a href="analisis_suelo.html">Análisis del suelo</a>
+        </nav>
+    </header>
+
+    <section class="analisis-suelo" id="analisis-suelo">
+        <div class="content">
+            <h3>Análisis del suelo</h3>
+            <p>Visualización de variables</p>
+
+            <div class="grafico-container">
+                <div class="grafico-panel">
+                    <h4>Temperatura del Suelo (°C)</h4>
+                    <canvas id="graficoTemperatura"></canvas>
+                </div>
+                <div class="grafico-panel">
+                    <h4>Humedad del Suelo (%)</h4>
+                    <canvas id="graficoHumedad"></canvas>
+                </div>
+                <div class="grafico-panel">
+                    <h4>Nivel de pH</h4>
+                    <canvas id="graficoPH"></canvas>
+                </div>
+                <div class="grafico-panel">
+                    <h4>Nutrientes Totales (mg/kg)</h4>
+                    <canvas id="graficoNutrientes"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Etiquetas de tiempo o muestra real
+        const etiquetas = ['10:00', '10:15', '10:30', '10:45', '11:00', '11:15', '11:30'];
+
+        const crearGraficoLinea = (ctxId, datos, color, unidad) => {
+            new Chart(document.getElementById(ctxId).getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: etiquetas,
+                    datasets: [{
+                        label: unidad,
+                        data: datos,
+                        borderColor: color,
+                        backgroundColor: 'transparent',
+                        fill: false,
+                        tension: 0.3,
+                        pointRadius: 3,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            position: 'top'
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Hora'
+                            },
+                            grid: {
+                                color: '#eee'
+                            }
+                        },
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: '#eee'
+                            }
+                        }
+                    }
+                }
+            });
+        };
+
+        // Datos de ejemplo realistas
+        crearGraficoLinea('graficoTemperatura', [22.3, 23.1, 23.8, 24.5, 25.0, 24.6, 24.2], 'rgb(220, 53, 69)', '°C');
+        crearGraficoLinea('graficoHumedad', [48, 50, 53, 55, 57, 54, 52], 'rgb(0, 123, 255)', '%');
+        crearGraficoLinea('graficoPH', [6.4, 6.5, 6.6, 6.7, 6.5, 6.4, 6.3], 'rgb(255, 193, 7)', 'pH');
+        crearGraficoLinea('graficoNutrientes', [35, 37, 40, 42, 41, 39, 38], 'rgb(40, 167, 69)', 'mg/kg');
+    </script>
+</body>
+</html>

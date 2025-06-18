@@ -1,0 +1,203 @@
+/* style.css - Estilos para la página de análisis de suelo */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@100;200;300;400;500;&display=swap');
+
+:root {
+    --verde: #203500;
+    --verde2: #008000;
+    --blanco: white;
+    --degradado: linear-gradient(90deg, var(--verde2), var(--verde));
+    --rojo: #dc3545;
+    --azul: #007bff;
+    --amarillo: #ffc107;
+    --verde-claro: #28a745;
+}
+
+/* Estilos generales */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .logo {
+    font-size: 2.5rem;
+    color: var(--verde);
+    font-weight: 600;
+}
+
+header .logo span {
+    color: var(--verde2);
+}
+
+header .navbar a {
+    font-size: 1.7rem;
+    margin-left: 2rem;
+    color: var(--verde);
+    transition: color 0.3s;
+}
+
+header .navbar a:hover {
+    color: var(--verde2);
+}
+
+header input {
+    display: none;
+}
+
+header label {
+    font-size: 3rem;
+    color: var(--verde);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* Sección de análisis de suelo */
+.analisis-suelo {
+    padding: 10rem 9% 5rem;
+    min-height: 100vh;
+}
+
+.analisis-suelo .content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.analisis-suelo h3 {
+    font-size: 3.5rem;
+    color: var(--verde);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.analisis-suelo p {
+    font-size: 1.8rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* Contenedor de gráficos */
+.grafico-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 3rem;
+}
+
+.grafico-panel {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.grafico-panel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.grafico-panel h4 {
+    font-size: 1.8rem;
+    color: var(--verde);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+canvas {
+    width: 100% !important;
+    height: 250px !important;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 991px) {
+    .analisis-suelo {
+        padding: 8rem 5% 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        transition: transform 0.3s, opacity 0.3s;
+    }
+
+    header .navbar a {
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
+
+    header input:checked ~ .navbar {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    .grafico-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .analisis-suelo {
+        padding: 8rem 3% 3rem;
+    }
+}
